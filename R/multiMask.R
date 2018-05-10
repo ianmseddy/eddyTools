@@ -1,7 +1,4 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
+
 #
 # You can learn more about package authoring with RStudio at:
 #
@@ -14,8 +11,10 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 multiMask <- function(maskValues, ...){
+  if(is.numeric(maskValues) == FALSE){
+    stop("maskValues must be numeric")
+  }
   output <- lapply(maskValues, FUN = function(l) {
-    browser()
     outRas <- raster::mask(maskvalue = l, ...)
     return(outRas)
   })
