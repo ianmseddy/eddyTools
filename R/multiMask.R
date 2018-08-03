@@ -1,5 +1,10 @@
-
-#
+## ' A function for masking multiple values at once
+#'
+#' This function is simply lapply with mask
+#'@keyword mask raster
+#'
+#'@examples
+#'multiMask(aRaster, maskValues = c(5,10))
 # You can learn more about package authoring with RStudio at:
 #
 #   http://r-pkgs.had.co.nz/
