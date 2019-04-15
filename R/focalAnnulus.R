@@ -11,11 +11,11 @@
 
 
 focalAnnulus <- function(distance, ras){
-  if(length(distance)>2){
+  if(length(distance)> 2){
     warning("You have supplied more than two distances. The min/max will be used for annulus")
   }
-  if(length(distance == 1)){
-    error("You must supply a vector of length 2 to create an annulus")
+  if(length(distance) < 2){
+    stop("You must supply a vector of length 2 to create an annulus")
   }
   inMat <- focalWeight(x = ras, d = min(distance))
   outMat <- focalWeight(x = ras, d = max(distance))
