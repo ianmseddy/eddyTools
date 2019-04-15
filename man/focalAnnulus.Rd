@@ -2,7 +2,8 @@
 % Please edit documentation in R/focalAnnulus.R
 \name{focalAnnulus}
 \alias{focalAnnulus}
-\title{This function is intended to be used with raster::focal}
+\title{A function for creating a matrix with an annulus for use in focal statistics
+This function is intended to be used with raster::focal}
 \usage{
 focalAnnulus(distance, ras)
 }
@@ -12,6 +13,7 @@ focalAnnulus(distance, ras)
 \item{ras}{the raster whose properties are used to generate focal annulus}
 }
 \description{
+A function for creating a matrix with an annulus for use in focal statistics
 This function is intended to be used with raster::focal
 }
 \examples{

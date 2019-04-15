@@ -1,5 +1,4 @@
 #' A function for merging sliver polygons into non-sliver neighbours.
-#' @details
 #' The threshold is applied to the area of the multipolygon object, not each
 #' individual polygon. Non-sliver polygons keep their original attributes
 #' @keywords sliver polygons intersect
@@ -9,7 +8,8 @@
 #' merged to their nearest valid neighbour.
 #'
 #' @export
-#' @importFrom sf st_area st_cast st_nearest_feature as_Spatial st_union
+#' @importFrom sf st_area st_cast st_nearest_feature as_Spatial st_union st_as_sf
+#' @importFrom raster bind
 #' @examples
 #'unSliver(x = intersectedPolygons, threshold = 500)
 

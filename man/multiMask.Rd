@@ -2,11 +2,13 @@
 % Please edit documentation in R/multiMask.R
 \name{multiMask}
 \alias{multiMask}
-\title{This function is simply lapply with mask}
+\title{A function for masking multiple values at once
+This function is simply lapply with mask}
 \usage{
 multiMask(maskValues, ...)
 }
 \description{
+A function for masking multiple values at once
 This function is simply lapply with mask
 }
 \examples{

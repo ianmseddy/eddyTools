@@ -1,5 +1,4 @@
-## ' A function for masking multiple values at once
-#'
+#' A function for masking multiple values at once
 #' This function is simply lapply with mask
 #'@keywords mask raster
 #'@importFrom raster mask

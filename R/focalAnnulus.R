@@ -1,5 +1,4 @@
-# ' A function for creating a matrix with an annulus for use in focal statistics
-#'
+#'A function for creating a matrix with an annulus for use in focal statistics
 #'This function is intended to be used with raster::focal
 #'@keywords focal raster
 #'@param distance a vector of 2 distances specifying inner and outer focal legnth
