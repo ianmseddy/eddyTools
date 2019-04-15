@@ -19,7 +19,7 @@ unSliver <- function(x, threshold) {
     backToSf <- TRUE
     x$tempArea <- as.numeric(st_area(x))
   } else {
-    xSf <- st_as_sf(x)
+    x<- st_as_sf(x)
     x$tempArea <- as.numeric(st_area(x))
   }
 
