@@ -1,8 +1,9 @@
 ## ' A function for masking multiple values at once
 #'
 #' This function is simply lapply with mask
-#'@keyword mask raster
-#'
+#'@keywords mask raster
+#'@importFrom raster mask
+#'@export
 #'@examples
 #'multiMask(aRaster, maskValues = c(5,10))
 # You can learn more about package authoring with RStudio at:
@@ -20,7 +21,7 @@ multiMask <- function(maskValues, ...){
     stop("maskValues must be numeric")
   }
   output <- lapply(maskValues, FUN = function(l) {
-    outRas <- raster::mask(maskvalue = l, ...)
+    outRas <- mask(maskvalue = l, ...)
     return(outRas)
   })
   names(output) <- paste("masked", maskValues, sep = "")

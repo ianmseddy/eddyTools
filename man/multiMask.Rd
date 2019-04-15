@@ -12,3 +12,5 @@ This function is simply lapply with mask
 \examples{
 multiMask(aRaster, maskValues = c(5,10))
 }
+\keyword{mask}
+\keyword{raster}

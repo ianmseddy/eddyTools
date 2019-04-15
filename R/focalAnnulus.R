@@ -1,8 +1,12 @@
 # ' A function for creating a matrix with an annulus for use in focal statistics
 #'
 #'This function is intended to be used with raster::focal
-#'@keyword focal raster
+#'@keywords focal raster
+#'@param distance a vector of 2 distances specifying inner and outer focal legnth
+#'@param ras the raster whose properties are used to generate focal annulus
 #'
+#'@importFrom raster focalWeight
+#'@export
 #'@examples
 #'focalAnnulus(aRaster, distances = c(5,10))
 
@@ -14,8 +18,8 @@ focalAnnulus <- function(distance, ras){
   if(length(distance == 1)){
     error("You must supply a vector of length 2 to create an annulus")
   }
-  inMat <- raster::focalWeight(x = ras, d = min(distance))
-  outMat <- raster::focalWeight(x = ras, d = max(distance))
+  inMat <- focalWeight(x = ras, d = min(distance))
+  outMat <- focalWeight(x = ras, d = max(distance))
   if(length(inMat) < 5){
     warning("Your distances will not produce an annulus shape. Verify the raster spatial unit")
   }

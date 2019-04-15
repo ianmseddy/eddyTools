@@ -6,9 +6,16 @@
 \usage{
 focalAnnulus(distance, ras)
 }
+\arguments{
+\item{distance}{a vector of 2 distances specifying inner and outer focal legnth}
+
+\item{ras}{the raster whose properties are used to generate focal annulus}
+}
 \description{
 This function is intended to be used with raster::focal
 }
 \examples{
 focalAnnulus(aRaster, distances = c(5,10))
 }
+\keyword{focal}
+\keyword{raster}
