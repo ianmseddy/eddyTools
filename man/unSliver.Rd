@@ -2,7 +2,9 @@
 % Please edit documentation in R/unSliver.R
 \name{unSliver}
 \alias{unSliver}
-\title{A function for merging sliver polygons into non-sliver neighbours.}
+\title{A function for merging sliver polygons into non-sliver neighbours.
+The threshold is applied to the area of the multipolygon object, not each
+individual polygon. Non-sliver polygons keep their original attributes}
 \usage{
 unSliver(x, threshold)
 }
@@ -17,8 +19,6 @@ merged to their nearest valid neighbour.
 }
 \description{
 A function for merging sliver polygons into non-sliver neighbours.
-}
-\details{
 The threshold is applied to the area of the multipolygon object, not each
 individual polygon. Non-sliver polygons keep their original attributes
 }

@@ -26,9 +26,12 @@ unSliver <- function(x, threshold) {
   #determine slivers by area
   xSlivers <- x[x$tempArea < threshold, ]
   xNotSlivers <- x[x$tempArea > threshold, ]
+  if (nrow(xNotSlivers) < 1) {
+    stop("Threshold exceeds the area of every polygon. Please select a smaller number")
+  }
 
   #Split slivers from multipolygon, or nearest feature may be incorrect
-  xSlivers <- st_cast(xSlivers, 'POLYGON')
+  xSlivers <- suppressWarnings(st_cast(xSlivers, 'POLYGON'))
 
   #Find nearest non-sliver
   nearestFeature <- st_nearest_feature(xSlivers, xNotSlivers)
@@ -48,8 +51,7 @@ unSliver <- function(x, threshold) {
       out <- sf::st_union(x = xMerge, y = yMerge) %>%
         as_Spatial(.)
       yMergeSpd <- sf::as_Spatial(yMerge)
-      out <-
-        SpatialPolygonsDataFrame(Sr = out,
+      out <- SpatialPolygonsDataFrame(Sr = out,
                                  data = yMergeSpd@data,
                                  match.ID = FALSE)
 
@@ -57,7 +59,11 @@ unSliver <- function(x, threshold) {
     }
   )
 
+  if (length(mergeSlivers) > 1) {
   m <- bind(mergeSlivers)
+  } else {
+    m <- mergeSlivers[[1]]
+  }
 
   #Remove the temporary column
   m$tempArea <- NULL
