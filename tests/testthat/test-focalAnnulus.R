@@ -1,3 +1,4 @@
+context("test the focalAnnulus function")
 test_that("distance vectors are formatted correctly", {
 
   testRas <- raster::raster(xmn = -10, xmx = 10, ymn = -10, ymx = 10, res = c(1,1))

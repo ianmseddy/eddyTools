@@ -1,6 +1,8 @@
 #' A function for merging sliver polygons into non-sliver neighbours.
 #' The threshold is applied to the area of the multipolygon object, not each
-#' individual polygon. Non-sliver polygons keep their original attributes
+#' individual polygon. Non-sliver polygons keep their original attributesl
+#' Inteded to be used when it is important to retain the original extent of an
+#' area while removing sliver polygons
 #' @keywords sliver polygons intersect
 #' @param x A spatialPolygonsDataFrame or sf object
 #' @param threshold the minimum area below which a polygon is considered a sliver
