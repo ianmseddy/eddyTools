@@ -12,10 +12,11 @@
 #' @export
 #' @importFrom sf st_area st_cast st_nearest_feature as_Spatial st_union st_as_sf
 #' @importFrom raster bind
+#' @importFrom rgeos gBuffer
 #' @examples
-#'unSliver(x = intersectedPolygons, threshold = 500)
+#'deSliver(x = intersectedPolygons, threshold = 500)
 
-unSliver <- function(x, threshold) {
+deSliver <- function(x, threshold) {
   backToSf <- FALSE
   if (class(x)[1] == "sf") {
     backToSf <- TRUE
@@ -69,6 +70,9 @@ unSliver <- function(x, threshold) {
 
   #Remove the temporary column
   m$tempArea <- NULL
+
+  #remove self-intersecting geometries
+  m <- gBuffer(spgeom = m, byid = TRUE, with = 0)
 
   if (backToSf) {
     m <- st_as_sf(m)
